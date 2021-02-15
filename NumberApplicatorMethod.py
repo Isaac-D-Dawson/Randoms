@@ -1,15 +1,32 @@
 #CHANGELOG:
+#V1.1:
 #-removed a redundant if clause that was preventing the code form running at all
 #-fixed a trailing whitespace issue that was causing asserts on the output to fail even when output was valid.
+#V1.2:
+#-Redesigned entire working function to use a smaller comparison set, reducing the memory needed.
 
 def nth(number: int) -> str:
-	suffixes = "th ,st ,nd ,rd ,th ,th ,th, th, th, th".split(" ,")
-	
-	if 10 <= (int(str(number)[-2:])) <= 19:
-	#is this number a "Teenager?"
-		return f"{number}th" #10-19 all end in "th", so we can cheat
+	suffixes = {"1":"st", "2":"nd", "3":"rd"}
+	num = str(number)
+
+	if len(num) >= 2:
+		if num[-2] == "1":
+			return f"{number}th"
+		else:
+			if num[-1] in "123":
+				return f"{number}{suffixes[num[-1]]}"
+			else:
+				return f"{number}th"
 	else:
-		return f"{number}{suffixes[number%10]}"#Otherwise, it obeys standard rules, and we only need the last digit.
+		if num[-1] in "123":
+				return f"{number}{suffixes[num[-1]]}"
+		else:
+			return f"{number}th"
+    		
+
+
+		
+    		
 
 #Note to self: consider seperating the "suffixes" list so you can adjust the suffixes used.
 #Potentially use DuckTyping to assign the suffix list as a default.
