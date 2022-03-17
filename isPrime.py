@@ -6,7 +6,7 @@
 #If yes, return True
 #Else, refer to prime record keys.
 
-
+debug = False #Debug override.
 
 primeRecord = {0 : False, 1 : False, 2 : True, 3 : True}
 
@@ -31,9 +31,10 @@ def isPrime(num:int) -> bool:
     primeRecord[num] = True
     return True
 
-assert isPrime(1)   ==  False, "One is not Prime"
-assert isPrime(2)   ==  True,  "Two Is Prime"
-assert isPrime(100) ==  False, "100 is not prime"
-assert isPrime(17)  ==  True,  "17 is Prime"
-assert isPrime(5)   ==  True, "Should have been established during 100"
-assert isPrime(-1) #Lets see what happens.
+if debug = True:
+    assert isPrime(1)   ==  False, "One is not Prime"
+    assert isPrime(2)   ==  True,  "Two Is Prime"
+    assert isPrime(100) ==  False, "100 is not prime"
+    assert isPrime(17)  ==  True,  "17 is Prime"
+    assert isPrime(5)   ==  True, "Should have been established during 100"
+    assert isPrime(-1) #Lets see what happens.
