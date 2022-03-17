@@ -6,7 +6,7 @@
 #If yes, return True
 #Else, refer to prime record keys.
 
-debug = False #Debug override.
+debug = False #Debug override. Enables end-of-document "assert" calls.
 
 primeRecord = {0 : False, 1 : False, 2 : True, 3 : True}
 
@@ -31,7 +31,7 @@ def isPrime(num:int) -> bool:
     primeRecord[num] = True
     return True
 
-if debug = True:
+if debug == True:
     assert isPrime(1)   ==  False, "One is not Prime"
     assert isPrime(2)   ==  True,  "Two Is Prime"
     assert isPrime(100) ==  False, "100 is not prime"
